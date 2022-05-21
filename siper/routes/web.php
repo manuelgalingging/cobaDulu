@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,5 +35,27 @@ Auth::routes();
 Route::get('/register', 'App\Http\Controllers\RegisterController@index');
 Route::post('/create_account', 'App\Http\Controllers\RegisterController@storeRegister');
 
-Route::get('/login', 'App\Http\Controllers\LoginController@index');
+
+// Route::get('/login', [App\Http\Controllers\LoginController::class, 'index']);
 Route::post('/postlogin', 'App\Http\Controllers\LoginController@postLogin');
+Auth::routes();
+
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::group(['middleware'=>['auth','CheckLevel:admin']], function(){
+
+
+});
+
+Route::group(['middleware'=>['auth','CheckLevel:petugas']], function(){
+
+    Route::get('/pinjam', [App\Http\Controllers\PengunjungController::class, 'index' ])->name('pinjam');
+});
+
+Route::group(['middleware'=>['auth','CheckLevel:pengunjung']], function(){
+
+    
+});

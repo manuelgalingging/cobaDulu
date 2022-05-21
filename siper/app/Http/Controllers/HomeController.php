@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 
@@ -23,6 +24,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        // return view('homepage_pengunjung');
+        if(Auth::user()->level == 'pengunjung'){
+           return view('pengunjung.homepage_pengunjung');
+
+        }
+        else if(Auth::user()->level == 'petugas'){
+            return view('homepage_pengunjung');
+    }
+
+        else if(Auth::user()->level == 'admin'){
+            return view('admin.admin-dashboard-pengunjung');
+    }
     }
 }

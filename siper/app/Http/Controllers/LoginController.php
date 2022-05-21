@@ -16,7 +16,7 @@ class LoginController extends Controller
      */
     public function index()
     {
-        return view('auth.login');
+        return view('authnew.login');
     }
 
     /**
@@ -29,7 +29,7 @@ class LoginController extends Controller
         
     //   dd($request->all()); }
         
-        if (Auth::attempt($request->only('username', 'password', 'level'))){
+        if (Auth::attempt($request->only('username', 'password',))){
             return redirect ('homepage_pengunjung');
         }
         return redirect ('login');

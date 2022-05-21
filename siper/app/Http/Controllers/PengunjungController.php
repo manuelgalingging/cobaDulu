@@ -3,20 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
 
-class RegisterController extends Controller
+class PengunjungController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
-        return view('auth.register');
+        return view('pengunjung.loaningpage_pengunjung');
     }
 
     /**
@@ -24,21 +26,9 @@ class RegisterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function storeRegister(Request $request)
+    public function create()
     {
-        {
-            $user = User::create([
-                
-                'username' => $request->username,
-                'name' => $request->name,
-                'email' => $request->email,
-                'no_telepon' => $request-> no_telepon,
-                'password' => Hash::make($request->password),
-               
-            ]);
-            $user->save();
-            return redirect('login');
-        }
+        //
     }
 
     /**
