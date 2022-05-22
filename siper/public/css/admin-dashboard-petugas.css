@@ -39,13 +39,10 @@
      color: white;
      font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
-
 .nav-link{
     color:white;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, ;
 }
-
-
 
 .title {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -59,6 +56,14 @@
 .row {
     padding-top: 60px;
 
+}
+
+.data h2{
+    font-family: 'Segoe UI', Tahoma, 'Geneva', Verdana, sans-serif;
+    margin:auto;
+    width: 200px;
+
+    position: relative;
 }
 
  .menu ul{
@@ -78,18 +83,7 @@
 
  .menu ul a:hover{
      background-color: rgb(255, 127, 80);
-
  }
- .data h2{
-    font-family: 'Segoe UI', Tahoma, 'Geneva', Verdana, sans-serif;
-    margin:auto;
-    width: 200px;
-
-    position: relative;
-}
-
-
-
 
  h2.title{
      font-family: 'Segoe UI', Tahoma, 'Geneva', Verdana, sans-serif;
@@ -117,8 +111,10 @@ table {
     border-radius: 3px;
     text-align: center;
     position: relative;
-    
 }
 
 
 
+table td h1{
+    font-size: 16px;
+}

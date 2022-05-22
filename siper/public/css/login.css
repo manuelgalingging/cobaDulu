@@ -12,23 +12,23 @@
 	box-sizing: border-box;
 }
 body {
-	font-family: poppins;
+	font-family: Arial, Helvetica, sans-serif;
 	font-size: 16px;
 	color: #fff;
+	
+	
+	
 }
 .form-box {
 	background-color: rgba(0, 0, 0, 0.5);
-	margin: auto auto;
 	padding: 40px;
 	border-radius: 5px;
 	box-shadow: 0 0 10px #000;
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
 	width: 500px;
 	height: 430px;
+	margin-top: 100px;
+	
+	
 }
 .form-box:before {
 
@@ -63,10 +63,11 @@ body {
 	margin: 10px 0px;
 	border: none;
 	padding: 10px;
-	border-radius: 5px;
+	border-radius: 10px;
 	width: 100%;
 	font-size: 18px;
 	font-family: poppins;
+	
 }
 .form-box input[type=checkbox] {
 	display: none;
@@ -102,6 +103,13 @@ body {
 .form-box span {
 	font-size: 14px;
 }
+.form-box input[type=username]{
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.form-box input[type=password]{
+	font-family: Arial, Helvetica, sans-serif;
+}
 .form-box button {
 	background-color:  rgb(67, 111, 152);
 	color: #fff;
@@ -110,7 +118,7 @@ body {
 	cursor: pointer;
 	width: 100%;
 	font-size: 18px;
-	padding: 10px;
+	padding: 20px;
 	margin: 20px 0px;
 }
 span a {

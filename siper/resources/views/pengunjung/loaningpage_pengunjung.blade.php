@@ -32,11 +32,10 @@
                     </li>
   
                        <li class="nav-item dropdown">
-                          <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profile</a>
-                       
+                          <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{Auth::user()->username}}</a>
                          <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                          <li><a href="profile_pengunjung.html"class="dropdown-item" href="#">Profil</a></li>
-                          <li><a href="loanhistory_pengunjung.html" class="dropdown-item" href="#">Riwayat</a></li>
+                          <li><a href="profile_pengunjung"class="dropdown-item" href="#">Profil</a></li>
+                          <li><a href="loanhistory_pengunjung" class="dropdown-item" href="#">Riwayat</a></li>
                           <li><a class="dropdown-item has-icon text-danger" href="{{ route('logout') }}" onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">Logout</a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

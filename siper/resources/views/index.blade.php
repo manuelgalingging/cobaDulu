@@ -3,9 +3,9 @@
 <head>
 	<meta charset="UTF-8">
 	<title>SIPER</title>
-	<link href="/css/login.css" rel="stylesheet">
+	<link href="css/login.css" rel="stylesheet">
 </head>
-<body>
+<body><center>
 <nav class="navbar navbar-light bg-light">
 </nav>
 	<div class="form-box">
@@ -17,5 +17,6 @@
       </label>
       <a href="register"><button>Masuk</button></a>
 	</div>
+</center>
 </body>
 </html>

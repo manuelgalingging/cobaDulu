@@ -34,11 +34,11 @@
 
                   
                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profile</a>
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{Auth::user()->username}}</a>
                      
                        <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                        <li><a href="profile_pengunjung.html"class="dropdown-item">Profil</a></li>
-                        <li><a href="loanhistory_pengunjung.html" class="dropdown-item">Riwayat</a></li>
+                        <li><a href="profile_pengunjung"class="dropdown-item">Profil</a></li>
+                        <li><a href="loanhistory_pengunjung" class="dropdown-item">Riwayat</a></li>
                         <li><a class="dropdown-item has-icon text-danger" href="{{ route('logout') }}" onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">Logout</a></li>
 
@@ -56,7 +56,7 @@
   <!-- <center>
     <header id="background">
 <br> <br> <br>
-  <!-- search bar-->
+  <-- search bar-->
   
   <nav class="navbar navbar-light ">
     <div class="container-fluid">
@@ -69,7 +69,6 @@
       </form>
     </div>
   </nav>
-  <br><br> -->
 <!--end of search bar-->
 
 <!-- data buku-->

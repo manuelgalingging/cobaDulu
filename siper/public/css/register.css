@@ -1,8 +1,30 @@
+
 .card-register{
-    width: 35%;
+    width: 40%;
     margin-left: 32%;
     margin-top: 10%;
     font-family: Arial, Helvetica, sans-serif;
+
+    
+}
+h2{
+  color: #000000;
+  font-size: 15px;
+
+}
+
+#login{
+  background-color: rgb(67, 111, 152);
+  border-radius: 4px;
+  padding: 10px;
+}
+
+
+h1{
+  color: rgb(0, 0, 0);
+}
+.reg-box label{
+  color: rgb(0, 0, 0);
 }
 
 .card-register h1{
@@ -14,11 +36,11 @@
 .formRegister a{
     text-decoration: none;
     margin-bottom: 10%;
-    color:#ccc;
+    color:rgb(255, 255, 255);
 }
 
 .formRegister a:hover{
-    color: blue;
+    color: rgb(255, 251, 0);
 }
 
 

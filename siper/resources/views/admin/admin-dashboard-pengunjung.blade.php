@@ -34,14 +34,14 @@
                             data-bs-toggle="dropdown" aria-expanded="false"> {{Auth::user()->username}}</a>
 
                         <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                            <li><a href="profile_admin.html" class="dropdown-item" href="#">Profile</a></li>
+                            <li><a href="profile_admin" class="dropdown-item">Profile</a></li>
                             <li><a class="dropdown-item has-icon text-danger" href="{{ route('logout') }}" onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">Logout</a></li>
 
-          </a>
-          <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-            @csrf
-        </form>
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
                         </ul>
                     </li>
             </div>
@@ -56,23 +56,27 @@
 
         <div class="menu">
             <ul>
-                <a href="pengunjung-Admin.html" class="">Pengunjung</a>
-                <a href="petugas-Admin.html" class="">Petugas</a>
-                <a href="statusbuku-Admin.html" class="">Status Buku</a>
+                <a href="admin-dashboard-pengunjung" class="">Pengunjung</a>
+                <a href="admin-dashboard-petugas" class="">Petugas</a>
+                <a href="admin-status-buku" class="">Status Buku</a>
             </ul>
         </div>
     </div>
+    <div class="data">
+        <h2>Data Pengunjung</h2>
+    </div>
 
+    <br>
     <table border="0" align="center" width="1000px">
         <tr class="nama-aktif">
-
+    
             <th width="200px">Nama</th>
             <th width="450px">Aktivitas</th>
         </tr>
-
+        
         <tr>
 
-            <td><a href="" class="href">Ucok</a></td>
+            <td><a href="profil_pengunjung" class="href">Ucok</a></td>
             <td><a type="submit" class="btn btn-primary" href="#" role="button"> Hapus </a></td>
         </tr>
     </table>

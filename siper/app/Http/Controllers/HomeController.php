@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
-
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -30,7 +29,7 @@ class HomeController extends Controller
 
         }
         else if(Auth::user()->level == 'petugas'){
-            return view('homepage_pengunjung');
+            return view('home');
     }
 
         else if(Auth::user()->level == 'admin'){

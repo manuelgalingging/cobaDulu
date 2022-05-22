@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PetugasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,32 @@ Route::get('/register', function () {
     return view('auth.register');
 });
 
+
+Route::get('/admin-dashboard-pengunjung', function () {
+    return view('admin.admin-dashboard-pengunjung');
+});
+Route::get('/admin-dashboard-petugas', function () {
+    return view('admin.admin-dashboard-petugas');
+});
+
+Route::get('/admin-status-buku', function () {
+    return view('admin.admin-status-buku');
+});
+
+Route::get('/profile_pengunjung]', function () {
+    return view('pengunjung.profile_pengunjung');
+});
+
+Route::get('/petugas_profile]', function () {
+    return view('petugas.petugas_profile');
+});
+
+
+
+
+
+
+
 Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -46,16 +73,21 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 Route::group(['middleware'=>['auth','CheckLevel:admin']], function(){
-
+    Route::get('/views_pengunjung', [App\Http\Controllers\AdminController::class, 'index'])->name('views_pengunjung');
 
 });
 
 Route::group(['middleware'=>['auth','CheckLevel:petugas']], function(){
+    Route::get('/v_pengunjung', [App\Http\Controllers\PetugasController::class, 'index' ])->name('v_pengunjung');
+    Route::get('/v_peminjaman', [App\Http\Controllers\PetugasController::class, 'index' ])->name('v_peminjaman');
+    Route::get('/v_pengembalian', [App\Http\Controllers\PetugasController::class, 'index' ])->name('v_pengembalian');
+    Route::get('/v_perpanjangan', [App\Http\Controllers\PetugasController::class, 'index' ])->name('v_perpanjangan');
+    Route::get('/v_databuku', [App\Http\Controllers\PetugasController::class, 'index' ])->name('v_databuku');
+    
 
-    Route::get('/pinjam', [App\Http\Controllers\PengunjungController::class, 'index' ])->name('pinjam');
 });
 
 Route::group(['middleware'=>['auth','CheckLevel:pengunjung']], function(){
-
+    Route::get('/pinjam', [App\Http\Controllers\PengunjungController::class, 'index' ])->name('pinjam');
     
 });
