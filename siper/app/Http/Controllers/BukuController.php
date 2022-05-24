@@ -4,33 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class PengunjungController extends Controller
+class BukuController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-    
     public function index()
     {
-        return view('pengunjung.loaningpage_pengunjung');
-    }
-
-    public function profilePengunjung(){
-        return view('pengunjung.profile-pengunjung');
-    }
-
-    public function loanHistory(){
-        return view('pengunjung.loanhistory-pengunjung');
-    }
-
-    public function perpanjangwaktu(){
-        return view('pengunjung.perpanjangwaktu_pengunjung');
+        return view('petugas.daftarbuku');
     }
 
     /**

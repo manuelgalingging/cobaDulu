@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PetugasController;
+use App\Http\Controllers\BukuController;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,21 +74,51 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 Route::group(['middleware'=>['auth','CheckLevel:admin']], function(){
-    Route::get('/views_pengunjung', [App\Http\Controllers\AdminController::class, 'index'])->name('views_pengunjung');
+    Route::get('/admin-dashboard-pengunjung', [App\Http\Controllers\AdminController::class, 'index'])->name('admin-dashboard-pengunjung');
+    Route::get('/admin-status-buku', [App\Http\Controllers\AdminController::class, 'indexBook'])->name('admin-status-buku');
+    Route::get('/admin-dashboard-petugas', [App\Http\Controllers\AdminController::class, 'indexPetugas'])->name('admin-dashboard-petugas');
 
+    Route::get('/profile-admin', [App\Http\Controllers\AdminController::class, 'profileAdmin'])->name('profile-admin');
+
+    Route::get('/tambahpetugas', [App\Http\Controllers\AdminController::class, 'tambahpetugas'])->name('tambahpetugas');
+    Route::post('/insertpetugas', [App\Http\Controllers\AdminController::class, 'insertpetugas'])->name('insertpetugas');
+
+   
 });
 
 Route::group(['middleware'=>['auth','CheckLevel:petugas']], function(){
-    Route::get('/v_pengunjung', [App\Http\Controllers\PetugasController::class, 'index' ])->name('v_pengunjung');
-    Route::get('/v_peminjaman', [App\Http\Controllers\PetugasController::class, 'index' ])->name('v_peminjaman');
-    Route::get('/v_pengembalian', [App\Http\Controllers\PetugasController::class, 'index' ])->name('v_pengembalian');
-    Route::get('/v_perpanjangan', [App\Http\Controllers\PetugasController::class, 'index' ])->name('v_perpanjangan');
-    Route::get('/v_databuku', [App\Http\Controllers\PetugasController::class, 'index' ])->name('v_databuku');
+    Route::get('/viewPengunjung', [App\Http\Controllers\PetugasController::class, 'index' ])->name('viewpengunjung');
     
+    Route::get('/vPengunjung', [App\Http\Controllers\PetugasController::class, 'vPengunjung' ])->name('v_pengunjung');
 
+    Route::get('/vPeminjaman', [App\Http\Controllers\PetugasController::class, 'vPeminjaman' ])->name('v_peminjaman');
+
+    Route::get('/vPengembalian', [App\Http\Controllers\PetugasController::class, 'vPengembalian' ])->name('v_pengembalian');
+
+    Route::get('/vPerpanjangan', [App\Http\Controllers\PetugasController::class, 'vPerpanjangan' ])->name('v_perpanjangan');
+
+    Route::get('/vDatabuku', [App\Http\Controllers\PetugasController::class, 'vDatabuku' ])->name('v_databuku');
+
+    Route::get('/vDaftarbuku', [App\Http\Controllers\PetugasController::class, 'vDaftarbuku' ])->name('v_daftarbuku');
+
+    Route::get('/profilePetugas', [App\Http\Controllers\PetugasController::class, 'profilePetugas' ])->name('profilePetugas');
+
+    Route::post('/insertbuku', [App\Http\Controllers\PetugasController::class, 'insertbuku'])->name('insertbuku');
+
+    Route::post('/editbuku', [App\Http\Controllers\PetugasController::class, 'editbuku'])->name('editbuku');
+  
+    
+     
 });
 
 Route::group(['middleware'=>['auth','CheckLevel:pengunjung']], function(){
     Route::get('/pinjam', [App\Http\Controllers\PengunjungController::class, 'index' ])->name('pinjam');
-    
+    Route::get('/profile-pengunjung', [App\Http\Controllers\PengunjungController::class, 'profilePengunjung' ])->name('profile-pengunjung');
+    Route::get('/loanhistory-pengunjung', [App\Http\Controllers\PengunjungController::class, 'loanHistory' ])->name('loanhistory-pengunjung');
+    Route::get('/perpanjang-waktu', [App\Http\Controllers\PengunjungController::class, 'perpanjangwaktu' ])->name('perpanjang-waktu');
+
 });
+
+
+
+

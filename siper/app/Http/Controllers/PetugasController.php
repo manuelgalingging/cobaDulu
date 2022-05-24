@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Buku;
+use App\Models\Petugas;
+use Illuminate\Support\Facades\DB;
 
 class PetugasController extends Controller
 {
@@ -13,13 +16,51 @@ class PetugasController extends Controller
      */
     public function __construct()
     {
+        $this->Buku = new Buku();
         $this->middleware('auth');
+       
     }
     
     public function index()
     {
+        $data = Buku::all();
+        
+        return view('petugas.homepagepengunjung_petugas',compact('data'));
+    }
+
+    public function vPengunjung(){
         return view('petugas.homepagepengunjung_petugas');
     }
+
+    public function vPeminjaman(){
+        return view('petugas.peminjaman');
+    }
+
+    public function vPengembalian(){
+        return view('petugas.pengembalian');
+    }
+
+    public function vPerpanjangan(){
+        return view('petugas.perpanjangan');
+    }
+
+    public function vDatabuku(){
+        return view('petugas.databuku');
+    }
+
+    public function vDaftarbuku(){
+        $buku = ['buku'=> $this->Buku->viewBuku(),
+    ];
+    return view('petugas.daftarbuku', $buku);
+      
+    }
+    
+    public function profilePetugas(){
+        return view('petugas.profile-petugas');
+    }
+
+
+
     /**
      * Show the form for creating a new resource.
      *
@@ -29,6 +70,43 @@ class PetugasController extends Controller
     {
         //
     }
+
+    public function insertbuku(Request $request){
+
+        // dd($request->all());
+        $buku = Buku::create([
+            'judul' => $request-> judul,
+            'pengarang' => $request-> pengarang,
+            'penerbit' => $request-> penerbit,
+            'tahunterbit' => $request-> tahunterbit,
+            'rak' => $request-> rak,
+           
+        ]);
+
+        $buku->save();
+         return redirect()->route('v_daftarbuku');
+    }
+
+    public function editbuku(){
+        $buku= Buku::find(Request()->id);
+        $buku->judul=Request()->judul;
+        $buku->pengarang=Request()->pengarang;
+        $buku->penerbit=Request()->penerbit;
+        $buku->tahunterbit=Request()->tahunterbit;
+        $buku->rak=Request()->rak;
+        
+        $buku->save();
+        return redirect()->route('v_daftarbuku');
+
+    }
+
+
+
+
+
+
+
+
 
     /**
      * Store a newly created resource in storage.

@@ -36,13 +36,23 @@
 }
 
 .navbar-brand{
-     color: white;
-     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+    color: white;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.navbar-brand:hover{
+   color: coral;
 }
 .nav-link{
-    color:white;
+    color:rgb(0, 0, 0);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, ;
-}
+ }
+ 
+ .nav-link:hover{
+    color: coral;
+   
+ 
+ }
 
 .title {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -73,6 +83,9 @@
      padding: 10px 6px;
  }
 
+ .menu ul .active{
+     background-color: rgb(255, 127, 80);
+ }
  .menu ul a{
      background-color: rgb(67, 111, 153);
      color:#fff;
@@ -118,3 +131,16 @@ table {
 table td h1{
     font-size: 16px;
 }
+
+.addPetugas{
+    margin-left: 20%;
+    margin-bottom: 10px;
+    position: relative;
+    width: 100%;
+}
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+  }

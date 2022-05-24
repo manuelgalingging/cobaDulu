@@ -19,7 +19,7 @@
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-white bg-blue">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">SIPER</a>
+            <a class="navbar-brand" href="home">SIPER</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span> </button>
@@ -34,13 +34,13 @@
                             data-bs-toggle="dropdown" aria-expanded="false">{{Auth::user()->username}}</a>
 
                         <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                            <li><a href="profile_admin" class="dropdown-item" href="#">Profile</a></li>
-                            <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();">Logout</a></li>
-          </a>
-          <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-            @csrf
-        </form><li>
+                                        <li><a href="profile-admin" class="dropdown-item" href="#">Profile</a></li>
+                                        <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">Logout</a></li>
+                         </a>
+                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                         @csrf
+                         </form><li>
                         </ul>
                     </li>
             </div>
@@ -54,35 +54,193 @@
     <div class="menu">
                 <ul>
                 <a href="admin-dashboard-pengunjung" class="">Pengunjung</a>
-                <a href="admin-dashboard-petugas" class="">Petugas</a>
+                <a href="admin-dashboard-petugas" class="active">Petugas</a>
                 <a href="admin-status-buku" class="">Status Buku</a>
                 </ul>
     </div>
-   
-  
-    <div class="data">
-        <h2>Data Petugas</h2>
+    <h1 class="text-center mb-4">Data Petugas</h1>
+  <div class="container ">
+  <input type="submit" class="btn btn-success" value="Tambah Petugas +" href="#" data-target="#insertpetugas" data-toggle="modal"></input>
+      <div class="row">
+      
+        <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">Nama</th>
+      <th scope="col"></th>
+      <th scope="col">Status</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+  @foreach ($petugas as $row) 
+  <tr>
+      <th scope="row"></th>
+      <td>{{$row->name}}</td>
+      <td></td>
+      <td>
+      <input type="submit" class="btn btn-warning" value="Edit" href="#" data-target="#edit-petugas{{$row->id}}" data-toggle="modal"></input>
+                    <input type="submit" class="btn btn-danger" value="Hapus" href="#" data-target="#hapuspetugas" data-toggle="modal"></input> 
+      </td>
+    </tr>
+    @endforeach
+  </tbody>
+
+</table>
+
     </div>
+</div>
+   
+   
+    <!-- Edit Petugas  -->
+    @foreach($petugas as $row)
+    <div class="modal fade" id="edit-petugas{{$row->id}}" tabdata-backdrop="static" data-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">Edit Petugas</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                
+                <div class="modal-body">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <div class="mb-3">
+                                <label for="username" class="form-label">Username</label>
+                                <input type="text" class="form-control"  value="{{$row->username}} " name="username" id="exampleInputUsername1" aria-describedby="emailHelp">
+                             
+                            </div>
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" class="form-control"  value="{{$row->name}}" name="name" id="exampleInputName1" aria-describedby="emailHelp">
+                             
+                            </div>
+
+
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                                <input type="text" class="form-control" name="email" value="{{$row->email}}" id="exampleInputEmail1" aria-describedby="emailHelp">
+                             
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">No Telepon</label>
+                                <input type="number" class="form-control" name="no_telepon" value="{{$row->no_telepon}}" id="exampleInputNotelp" aria-describedby="emailHelp">
+                             
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Password</label>
+                                <input type="password" class="form-control" value="{{$row->password}}" name="password" id="exampleInputPassword1">
+                            </div>
+
+                         
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endforeach
+
+
+ <!-- Tambah Petugas  -->
+    <div class="modal fade" id="insertpetugas" tabdata-backdrop="static" data-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">Tambah Petugas</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                
+                <div class="modal-body">
+                    <form action="{{route('insertpetugas')}}" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <div class="mb-3">
+                                <label for="username" class="form-label">Username</label>
+                                <input type="text" class="form-control"   name="username" id="exampleInputUsername1" aria-describedby="emailHelp">
+                             
+                            </div>
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" class="form-control"   name="name" id="exampleInputName1" aria-describedby="emailHelp">
+                             
+                            </div>
+
+
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                                <input type="text" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
+                             
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">No Telepon</label>
+                                <input type="number" class="form-control" name="no_telepon" id="exampleInputNotelp" aria-describedby="emailHelp">
+                             
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Password</label>
+                                <input type="password" class="form-control" name="password" id="exampleInputPassword1">
+                            </div>
+
+                         
+                            <button type="submit" class="btn btn-primary" id="suksestambah">Submit</button>
+                            </form>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
   
+    <!--Hapus Petugas-->
+                        <div class="modal fade" id="hapuspetugas" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Hapus Data</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  <label for="">Apakah data ingin dihapus?</label>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                    <button type="button" class="btn btn-danger">Hapus</button>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+    
 
-
-    <table border="0" align="center" width="1000px">
-    <tr class="tambah"><th><br><input type="submit" class="btn btn-primary" value="+Tambah Petugas" href="#"></input></th><br>
-</tr>
-        <tr class="nama-aktif">
-            <th width="200px">Nama</th>
-            <th width="450px">Status</th>
-        </tr>
-        <tr>
-            <td><a href="profil_petugas" class="href">Ucok</a></td>
-            <td>
-                <ul>
-                    <input type="submit" class="btn btn-warning" value="Edit" href="#"></input>
-                    <input type="submit" class="btn btn-danger" value="Hapus" href="#"></input>
-            </td>
-            </ul>
-        </tr>
-    </table>
+<!--Footer -->
+<footer>
+  <div class="text-center">
+    <div class="container p-2"></div>
+    <div class="text-center p-1">
+      © 2022 Copyright: SIPER SMA Swasta HKBP 2 Tarutung </div>
+    <div class="text-center p-1">
+      Contact Us On : xxxxxxxx </div>
+  </div>
+  </footer>
+   
 </body>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
 
 </html>

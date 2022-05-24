@@ -36,15 +36,23 @@
 }
 
 .navbar-brand{
-     color: white;
-     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+    color: white;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+.navbar-brand:hover{
+   color: coral;
+}
 .nav-link{
-    color:white;
+    color:rgb(0, 0, 0);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, ;
-}
-
+ }
+ 
+ .nav-link:hover{
+    color: coral;
+   
+ 
+ }
 
 
 .title {
@@ -86,6 +94,10 @@
      background-color: rgb(255, 127, 80);
  }
 
+ .menu ul .active{
+    background-color: rgb(255, 127, 80);
+}
+
  h2.title{
      font-family: 'Segoe UI', Tahoma, 'Geneva', Verdana, sans-serif;
  }
@@ -111,7 +123,13 @@ table {
     background-color: aliceblue;
     border-radius: 3px;
     text-align: center;
-    position: relative;
-    
+   
 }
 
+
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+  }

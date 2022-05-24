@@ -14,7 +14,7 @@
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-white bg-blue">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">SIPER</a>
+        <a class="navbar-brand" href="home">SIPER</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
               aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span> </button>
@@ -77,5 +77,15 @@
             <a type="button" class="btn btn-secondary" href="homepage_pengunjung.html" role="button"> Hapus </a>
               </div>
     </div>
+    <!--Footer -->
+<footer>
+  <div class="text-center">
+    <div class="container p-2"></div>
+    <div class="text-center p-1">
+      © 2022 Copyright: SIPER SMA Swasta HKBP 2 Tarutung </div>
+    <div class="text-center p-1">
+      Contact Us On : xxxxxxxx </div>
+  </div>
+  </footer>
   </body>
   </html>

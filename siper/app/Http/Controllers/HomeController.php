@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class HomeController extends Controller
 {
@@ -14,6 +15,7 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->User= new User();
     }
 
     /**
@@ -29,11 +31,13 @@ class HomeController extends Controller
 
         }
         else if(Auth::user()->level == 'petugas'){
-            return view('home');
+            return view('petugas.homepagepengunjung_petugas');
     }
 
         else if(Auth::user()->level == 'admin'){
-            return view('admin.admin-dashboard-pengunjung');
+            $data = ['pengunjung'=> $this->User->viewPengunjung(),
+        ];
+            return view('admin.admin-dashboard-pengunjung',$data);
     }
     }
 }

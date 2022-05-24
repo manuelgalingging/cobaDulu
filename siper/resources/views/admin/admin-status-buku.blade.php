@@ -19,7 +19,7 @@
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-white bg-blue">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">SIPER</a>
+            <a class="navbar-brand" href="home">SIPER</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span> </button>
@@ -33,9 +33,15 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">{{Auth::user()->username }}</a>
 
-                        <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                            <li><a href="profile_admin.html" class="dropdown-item" href="#">Profile</a></li>
-                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                            <li><a href="profile-admin" class="dropdown-item">Profile</a></li>
+                            <li><a class="dropdown-item has-icon text-danger" href="{{ route('logout') }}" onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();">Logout</a></li>
+
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
                         </ul>
                     </li>
             </div>
@@ -49,36 +55,166 @@
                 <ul>
                 <a href="admin-dashboard-pengunjung" class="">Pengunjung</a>
                 <a href="admin-dashboard-petugas" class="">Petugas</a>
-                <a href="admin-status-buku" class="">Status Buku</a>
+                <a href="admin-status-buku" class="active">Status Buku</a>
                 </ul>
     </div>
+    <h1 class="text-center mb-4 ">Data Status Buku</h1>
+<div class="container">
+    <div class="row">
+        
+    <table class="table table-striped" >
+  <thead>
+    <tr>
+      <th scope="col">Gambar</th>
+      <th scope="col"></th>
+      <th scope="col">Buku</th>
+      <th scope="col">Keterangan</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td><input type="submit" class="btn btn-success" value="Details" href="#" data-target="#detail" data-toggle="modal"></input></td>
+      <td>Judul Buku</td>
+      <td></td>
+    </tr>
+  </tbody>
+  
+</table>
 
-    <div class="data">
-        <h2>Data Status Buku</h2>
+<!--Details -->
+
+<div class="modal fade" id="detail" tabdata-backdrop="static" data-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                
+                <div class="modal-body">
+                    <form>
+                        @csrf
+            
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Judul Buku</label>
+                                <p>-</p>
+                             
+                            </div>
+
+
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Pengarang</label>
+                                <p>-</p>
+                             
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Penerbit</label>
+                                <p>-</p>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Tahun terbit</label>
+                                <p>-</p>
+                            </div>
+
+                            </form>
+
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-    <br>
 
-    <table border="0" align="center" width="1000px">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- </div>
+</div>
+
+    <table border="0" align="center" width="1000px" style="margin:auto">
         <tr class="nama-aktif">
+            <th width="100px">
+                <br>
+                <br>
+                <th width="100px">Gambar</th>
             <th width="200px">Buku</th>
             <th width="450px">Keterangan</th>
+            </th>
         </tr>
+        
+            
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td align="left" height="10px">Judul Buku</td>
+                    <td></td>
+                </tr>
 
-        <tr align="left">
-            <td>Judul Buku</td>
-        <tr>
-        <tr align="left">
-            <td>Penerbit</td>
-        </tr>
-        <tr align="left">
-            <td>Tahun Penerbit</td>
-        </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td align="left" height="10px">Pengarang</td>
+                
+                </tr>
 
+                <tr>
+                <td></td>
+                <td></td>
+                <td align="left" height="10px">Penerbit</td>   
+            
+                </tr>
 
+                <tr>
+                    
+                <td></td>
+                <td><input type="submit" class="btn btn-primary" value="Detail" href="#"></input></td>
+                <td align="left" height="10px">Tahun penerbit</td>
+                <td ></td>
+                
+             
+                    
+                </tr>
+    </table> -->
+<!--Footer -->
+<footer>
+  <div class="text-center">
+    <div class="container p-2"></div>
+    <div class="text-center p-1">
+      © 2022 Copyright: SIPER SMA Swasta HKBP 2 Tarutung </div>
+    <div class="text-center p-1">
+      Contact Us On : xxxxxxxx </div>
+  </div>
+  </footer>
 
-
-        </tr>
-    </table>
 </body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 </html>
+

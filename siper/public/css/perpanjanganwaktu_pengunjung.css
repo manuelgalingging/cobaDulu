@@ -34,15 +34,15 @@
     margin-top: 30px;
     width:60%;
 }
-
 .navbar-brand{
     color: white;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .navbar-brand:hover{
-   color: coral;
+    color:coral;
 }
+
 .nav-link{
     color:rgb(0, 0, 0);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, ;
@@ -50,13 +50,11 @@
  
  .nav-link:hover{
     color: coral;
-   
- 
  }
 
 .title {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin-top: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, ;
+    margin-top: 60px;
 }
 .lines{
     
@@ -67,69 +65,36 @@
     padding-top: 60px;
 
 }
-
- .menu ul{
-     float: none;
-     margin-left: 150px;
-     position: relative;
-     padding: 10px 6px;
+ .form-control{
+     width: 400px;
+ }
+ .button-pengajuan{
+     margin: 10px;
+     padding: 30px;
+     
+ }
+ .rows {
+    padding-top: 20px;
+    padding: 20px;
+ }
+ .mb-3 {
+     margin-left:450px;
+     
+ }
+ .cards {
+     width: 800px;
+     margin-left: 20px;
  }
 
- .menu ul a{
-     background-color: rgb(67, 111, 153);
-     color:#fff;
-     border-radius: 2px;
-     text-decoration: none;
-     padding: 4px;
+ .text-center{
+    background-color: rgb(67, 111, 153);
+    color :white;
  }
-
- .menu ul a:hover{
-     background-color: rgb(255, 127, 80);
-
- }
-
- .menu ul .active{
-    background-color: rgb(255, 127, 80);
-}
- .data h2{
-    font-family: 'Segoe UI', Tahoma, 'Geneva', Verdana, sans-serif;
-    margin:auto;
-    width: 200px;
-
-    position: relative;
-}
-
-
-
-
- h2.title{
-     font-family: 'Segoe UI', Tahoma, 'Geneva', Verdana, sans-serif;
- }
-
- .isiPengunjung{
-     display: flex;
-     flex-direction: row;
-     padding: 2px;
- }
-
-
-
-tr td a{
-    text-decoration: none;
-    color: black;
-}
-table {
-    background-color: aliceblue;
-    border-radius: 3px;
-    text-align: center;
-    position: relative;
-    
-}
-footer{
+ 
+ footer{
     position: absolute;
     bottom: 0;
     width: 100%;
     height: 30px;
   }
-
-
+ 
